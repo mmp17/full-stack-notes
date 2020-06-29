@@ -17,13 +17,6 @@
 
 
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
-
-
-
 ##### HTTP Cookies
 
 _Small piece of data sent from a web server and stored on the client side_
@@ -98,13 +91,6 @@ _Authentication middleware for Node.js_
 
 
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
-
-
-
 
     *   Header: algorithm of encoding the JWT and type of the token
     *   Payload: carry information that identify the user, e.g. id
@@ -123,3 +109,17 @@ _Population is the process of automatically replacing specified paths within a d
 
 
 *   Store the reference  to the other document in the form of the object ID in the document you want to populate the information
+
+In the model
+```javascript
+var Favorites = new Schema({
+  user: {
+		type: mongoose.Schema.Types.ObjectId,     // store the id that refers the user
+		ref: 'User'  // refer to User model
+	},
+  dishes: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Dish'  // refer to Dish model
+	}]
+});
+```
