@@ -114,12 +114,12 @@ In the model
 ```javascript
 var Favorites = new Schema({
   user: {
-		type: mongoose.Schema.Types.ObjectId,     // store the id that refers the user
-		ref: 'User'  // refer to User model
+	type: mongoose.Schema.Types.ObjectId,     // store the id that refers the user
+	ref: 'User'  // refer to User model
 	},
   dishes: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Dish'  // refer to Dish model
+	type: mongoose.Schema.Types.ObjectId,
+	ref: 'Dish'  // refer to Dish model
 	}]
 });
 ```
