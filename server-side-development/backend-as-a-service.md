@@ -4,9 +4,7 @@
 
 ## HTTPS and Secure Communication
 
-
 ### Symmetric Key Cryptography
-
 
 
 *   Shared secret key between two parties
@@ -15,41 +13,19 @@
 ### Public Key Cryptography
 
 Asymmetric Encryption
-
-
-
 *   Public key can be widely distributed
 *   Private key is only known to the receiver
 *   Expensive process
 
 
-![alt_text](images/image2.png "image_tooltip")
-
-
-
 ### Secure Sockets Layer (SSL)/ Transport Layer Security (TLS)
-
-
-
 *   Uses a combination of public-key cryptography and symmetric cryptography
 
-
 ### SSL/TLS Handshake
-
-
-
-
-
 *   Same session key: both follow same process for generating the session key
 
 
 ### HTTPS
-
-
-
-
-
-
 *   Transport layer: TCP & IP forms the network
 *   Secure socket layer: SSL/TLS, ensure secure communication between server and client
 *   HTTPS: HTTP + encryption/decryption through SSL & TLS
@@ -57,9 +33,6 @@ Asymmetric Encryption
 
 
 ### Generating Keys
-
-
-
 *   Open SSL: generate self-signed certificate
 *   Self-signed keys: not acceptable in the outside work
     *   In postman, need to turn off SSL certificate verification
@@ -67,25 +40,16 @@ Asymmetric Encryption
 
 
 ## Uploading Files
-
-
-
 *   The boundary separates the multipart request body
 
 
 ### Multer
-
 Supports multipart/ form-data included inside the request body
-
-
-
 *   Written on top of busboy, a Node module for parsing incoming HTML form data
 *   Parses the incoming form data and adds a body object and file/files object to request body
 
 
 ## Cross-Origin Resource Sharing (CORS)
-
-
 ### Origin
 
 _Defined by **(Protocol, host name, port number)**_
