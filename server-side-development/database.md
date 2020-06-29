@@ -146,14 +146,7 @@ _Adds structure to MongoDB documents with schema_
 
 Doing business logic in the Express server
 
-Doing the interaction with the database from the node application from Express server which is a node application using Mongoose
-
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
+Doing the interaction with the database from the node application from Express server which is a node application using Mongoos
 
 
 
@@ -166,3 +159,54 @@ Doing the interaction with the database from the node application from Express s
     2. Resource affected
     3. Data in the body of the request
 2. Translate request to an equivalent database operation
+
+In the router.js
+
+GET
+```javascript
+leaderRouter.route('/')
+.get(cors.cors, (req, res, next) => {
+	Leaders.find({})
+		.then((leaders) => {
+			res.statusCode = 200;
+			res.setHeader('Content-Type', 'application/json');
+			res.json(leaders);
+		}, (err) => next(err))
+			.catch((err) => next(err));
+})
+```
+
+POST
+```javascript
+.post(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
+	Leaders.create(req.body)
+		.then((leader) => {
+			console.log('Leader Created ', leader);
+			res.statusCode = 200;
+			res.setHeader('Content-Type', 'application/json');
+			res.json(leader);
+		}, (err) => next(err))
+			.catch((err) => next(err));
+})
+```
+
+DELETE
+```javascript
+.delete(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
+	Leaders.remove({})
+		.then((resp) => {
+			res.statusCode = 200;
+			res.setHeader('Content-Type', 'application/json');
+			res.json(resp);
+		}, (err) => next(err))
+			.catch((err) => next(err));
+});
+```
+
+If operation is not supported
+```javascript
+.put(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
+	res.statusCode = 403;
+	res.end('PUT operation not supported on /leaders');
+})
+```
