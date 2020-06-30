@@ -1,5 +1,7 @@
-# Integrating  the React Client and Server
-## User Authentication
+# Server-side Development with NodeJS, Express and MongoDB
+## Backend as a Service
+## Integrating  the React Client and Server
+### User Authentication
 1. Client POST request to /users/login
     1. Request body contains username, pwd
 2. Server validates and replies with the token if successful
