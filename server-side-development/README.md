@@ -1,13 +1,9 @@
 # Server-side Development with NodeJS, Express and MongoDB
 1. [NodeJS](#NodeJS)
-
-[2. Database](#Database)
-
-[3. User Authentication](#User-Authentication)
-
-[4. Backend as a Service](#Backend-as-a-Service)
-
-[5. Integrating the React Client and Server](#Integrating-the-React-Client-and-Server)
+2. [Database](#Database)
+3. [User Authentication](#User-Authentication)
+4. [Backend as a Service](#Backend-as-a-Service)
+5. [Integrating the React Client and Server](#Integrating-the-React-Client-and-Server)
 
 ## NodeJS
 A JavaScript runtime
