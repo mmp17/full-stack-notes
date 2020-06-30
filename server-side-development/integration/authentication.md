@@ -9,13 +9,13 @@
 5. Setting authorization header in the fetch request
 
 ### Changes in codes
-[1. Updating the CORS Whitelist](####-1.-Updating-the-CORS-Whitelist)
+[1. Updating the CORS Whitelist](#1.-Updating-the-CORS-Whitelist)
 
-[2. Updating the Routes](####-2.-Updating-the-Routes)
+[2. Updating the Routes](#2.-Updating-the-Routes)
 
-[3. Update the user's login process](####-3.-Update-the-user's-login-process)
+[3. Update the user's login process](#3.-Update-the-user's-login-process)
 
-[4. Add JWT token verification endpoint](####-4.-Add-JWT-token-verification-endpoint)
+[4. Add JWT token verification endpoint](#4.-Add-JWT-token-verification-endpoint)
 
 #### 1. Updating the CORS Whitelist
 
