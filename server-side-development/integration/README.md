@@ -18,3 +18,15 @@
 4. Add the new /comments endpoint in `app.js`
 
 ### Client Side
+
+
+### React Application using Firebase as BaaS
+1. Store images in Storage and other data in Database
+2. Change auth rule to 
+```
+allow read; 
+allow write if rule.auth != null
+```
+3. install the firebase module
+4. Set up config.js with information in the setting
+5. In `ActionCreator.js`, use `firestore.collections("abc")` instead of `fetch`
