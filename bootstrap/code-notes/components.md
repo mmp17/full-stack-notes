@@ -1,28 +1,10 @@
 # Components
 1. [Navigation](#navigation)
 2. [Icon Font](#icon-font)
-3. [Input](#input)
-
+3. [User Input](#input)
+4. [Tables and Cards](#tables-and-cards)
 
 ## Navigation
-```html
-<nav class="navbar navbar-dark navbar-expand-sm bg-primary fixed-top">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand mr-auto" href="#">Ristorante con Fusion</a>
-        <div class="collapse navbar-collapse" id="Navbar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="./aboutus.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-```
 1. Collapse on small size screen
 ```html
 <nav class="navbar navbar-expand-sm">
@@ -135,9 +117,54 @@
 </button>
 ```
 
+## Tables and Cards
+### Tables
+1.  Responsive table
+```html
+<div class="table-responsive">
+```
 
+2. Different colors for alternate rows
+```html
+<table class="table table-striped">
+```
 
+3. Dark color for the header
+```html
+<thead class="thead-dark">
+```
 
+### Cards
+1. Add a card
+```html
+<div class="card">
+    <h3 class="card-header">Facts At a Glance</h3>
+    <div class="card-body">
+    ...
+    </div>
+</div>
+```
+2. Display information using `<dl>` description list
+```html
+<div class="card-body">
+    <dl  class="row">
+        <dt class="col-6">Started</dt>
+        <dd class="col-6">3 Feb. 2013</dd>
+    </dl>
+</div>
+```
+3. Add a blockquote
+
+`mb-0`: bottom margin is zero
+```html
+<blockquote class="blockquote">
+    <p class="mb-0"></p>
+    <footer class="blockquote-footer">Yogi Berra, 
+        <cite title="Source Title">The Wit and Wisdom of 
+            Yogi Berra, P. Pepe, Diversion Books, 2014</cite>
+    </footer>
+</blockquote>
+```
 
 
 
