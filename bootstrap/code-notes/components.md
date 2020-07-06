@@ -4,6 +4,7 @@
 3. [User Input](#input)
 4. [Tables and Cards](#tables-and-cards)
 5. [Images and Media](#images-and-media)
+6. [Badges](#badges)
 
 ## Navigation
 1. Collapse on small size screen
@@ -184,6 +185,17 @@
         <h2 class="mt-0">...</h2>
     </div>
 </div>
+```
+
+## Badges
+1. Add a red badge
+```html
+<span class="badge badge-danger">HOT</span>
+```
+
+2. Add a secondary badge
+```html
+<span class="badge badge-pill badge-secondary">$4.99</span>
 ```
 
 
