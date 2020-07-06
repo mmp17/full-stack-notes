@@ -3,6 +3,7 @@
 2. [Icon Font](#icon-font)
 3. [User Input](#input)
 4. [Tables and Cards](#tables-and-cards)
+5. [Images and Media](#images-and-media)
 
 ## Navigation
 1. Collapse on small size screen
@@ -166,9 +167,24 @@
 </blockquote>
 ```
 
+## Images and Media
+### Images
+1. Add a image
 
-
-
+`img-fluid`: image will automatically be responsive and adapt to the screen size 
+```html
+<img src="img/logo.png" class="img-fluid">
+```
+### Media
+1. Add a media
+```html
+<div class="media">
+    <img class="d-flex mr-3 img-thumbnail align-self-center" src="img/uthappizza.png" alt="uthappizza">
+    <div class="media-body">
+        <h2 class="mt-0">...</h2>
+    </div>
+</div>
+```
 
 
 
