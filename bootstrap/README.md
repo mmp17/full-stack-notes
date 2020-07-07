@@ -7,7 +7,9 @@
 6. [Media Queries](#media-queries)
 7. [jQuery](#jquery)
 8. [CSS Preprocessors](#css-preprocessors)
-9. [Bootstrap Codes](https://github.com/vanessaaleung/full-stack-notes/tree/master/bootstrap/code-notes)
+9. [Deployment Check](#deployment-check)
+10. [Task Runner](#task-runnder)
+11. [Bootstrap Codes](https://github.com/vanessaaleung/full-stack-notes/tree/master/bootstrap/code-notes)
 
 ## Three-tier Architecture
 *   Presentation Layer
@@ -108,6 +110,40 @@ $(selector).action()
 ### Mixins
 ### Mixins with Parameters
 ### Mathematical Operations
+
+## Deployment Check
+### CSS Check
+*   Compiling Sass/Less into CSS
+*   Running Autoprefixer to add any vendor prefixes that are needed
+*   Minification: removing unnecessary characters
+*   Concatenation of all css files
+
+### CSS prefixes
+_Add support for new CSS features before those features are fully supported in all browsers_
+*   -webkit-: (Chrome, Safari, newer versions of Opera, almost all iOS browsers including Firefox for iOS; basically, any WebKit based browser)
+*   -moz-: (Firefox)
+*   -o-: (old pre-WebKit versions of Opera)
+*   -ms-: (Internet Explorer and Microsoft Edge)
+
+### Javascript Check
+*   JSHint: check for errors
+*   Concatenation of all js files
+*   Uglification: minification + mangling (reduce local variables to single letters)
+*   Rechecking for errors
+
+### Other Check
+*   Images: optimize file size
+*   Watch: watch for changes in files and automatically rerunning tasks
+*   Server and Livereload
+*   Testing
+*   Building the site for deployment
+
+## Task Runners
+_Configure the tasks once and rerun it automatically as needed_
+*   Grunt: Configuration over Code
+*   Gulp: Code over Configuration
+*   Others: Cake, Brunch, Broccoli
+*   Build systems for the web
 
 ## Bootstrap Codes
 1. [Responsive Design and Bootstrap Grid System](https://github.com/vanessaaleung/full-stack-notes/blob/master/bootstrap/code-notes/responsive-design.md)
