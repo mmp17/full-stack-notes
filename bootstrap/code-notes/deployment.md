@@ -4,6 +4,7 @@
 3. [Copying Fonts](#copying-fonts)
 4. [Compressing and Minifying Images](#compressing-and-minifying-images)
 5. [Preparing the Distribution Folder](#preparing-the-distribution-folder)
+6. [Grunt](#grunt)
 
 ## Watching for Changes and Parallelshell
 1. Install `onchange` and `parallelshell` package
@@ -79,3 +80,103 @@ dist
 ```shell
 npm run build
 ```
+
+## Grunt
+1. Install grunt-cli & grunt
+```shell
+sudo npm install -g grunt-cli
+```
+```shell
+npm install grunt
+```
+2. Create a Grunt File `Gruntfile.js` and Add the following code
+```javascript
+'use strict';
+
+module.exports = function (grunt) {
+  // Define the configuration for all the tasks
+  grunt.initConfig({
+
+  });
+};
+```
+3. Compile SCSS to CSS
+- `grunt-sass`: for SCSS to CSS conversion
+- `time-grunt`: generates time statistics about how much time each task consumes
+- `jit-grunt`: enables us to include the necessary downloaded Grunt modules when needed
+```shell
+npm install grunt-sass@2.1.0 --save-dev
+npm install time-grunt@1.4.0 --save-dev
+npm install jit-grunt@0.10.0 --save-dev
+```
+4. Configure the SASS task in the Gruntfile
+```javascsript
+'use strict';
+
+module.exports = function (grunt) {
+    // Time how long tasks take. Can help when optimizing build times
+    require('time-grunt')(grunt);
+
+    // Automatically load required Grunt tasks
+    require('jit-grunt')(grunt);
+
+    // Define the configuration for all the tasks
+    grunt.initConfig({
+        sass: {
+            dist: {
+                files: {
+                    'css/styles.css': 'css/styles.scss'
+                }
+            }
+        }
+    });
+
+    grunt.registerTask('css', ['sass']);
+
+};
+```
+5. Run the grunt SASS task
+```shell
+grunt css
+```
+6. Watch and Serve Tasks
+*Use the Grunt modules watch and browser-sync to spin up a web server and keep a watch on the files and automatically reload the browser when any of the watched files are updated*
+- install the modules
+```shell
+npm install grunt-contrib-watch@1.0.0 --save-dev
+npm install grunt-browser-sync@2.2.0 --save-dev
+```
+- configure the browser-sync and watch tasks in the Grunt file
+```javascript
+,
+	watch: {
+	    files: 'css/*.scss',
+	    tasks: ['sass']
+	},
+	browserSync: {
+	    dev: {
+		bsFiles: {
+		    src : [
+			'css/*.css',
+			'*.html',
+			'js/*.js'
+		    ]
+		},
+		options: {
+		    watchTask: true,
+		    server: {
+			baseDir: "./"
+		    }
+		}
+	    }
+	}
+```
+- Add following task to the Grunt file
+```javascript
+grunt.registerTask('default', ['browserSync', 'watch']);
+```
+- Run
+```shell
+grunt
+```
+
