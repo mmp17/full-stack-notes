@@ -8,7 +8,7 @@
 7. [jQuery](#jquery)
 8. [CSS Preprocessors](#css-preprocessors)
 9. [Deployment Check](#deployment-check)
-10. [Task Runner](#task-runnder)
+10. [Task Runners](#task-runners)
 11. [Bootstrap Codes](https://github.com/vanessaaleung/full-stack-notes/tree/master/bootstrap/code-notes)
 
 ## Three-tier Architecture
