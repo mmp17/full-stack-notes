@@ -5,6 +5,10 @@
 4. [Tables and Cards](#tables-and-cards)
 5. [Images and Media](#images-and-media)
 6. [Badges](#badges)
+7. [Tabs](#tabs)
+8. [Accordion](#accordion)
+9. [Tooltips and Modals](#tooltips-and-modals)
+10. [Carousels](#carousels)
 
 ## Navigation
 1. Collapse on small size screen
@@ -197,10 +201,150 @@
 ```html
 <span class="badge badge-pill badge-secondary">$4.99</span>
 ```
+## Tabs
+1. Add a tab
+```html
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+      <a class="nav-link active" href="#peter" role="tab" data-toggle="tab">Peter Pan, CEO</a>
+  </li>  
+</ul>
+```
 
+2. Add tab contents
 
+- `fade`: animation that allows contents to fade in
+- `show`: the content should be shown when the page is rendered, only apply to the first tab
+- `active`: the tab should be shown when the page is rendered, only apply to the first tab
 
+```html
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade show active" id="peter">
+```
 
+## Accordion
+1. Add a card
+```html
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" role="tab" id="peterhead">
+        <h3 class="mb-0">
+            <a data-toggle="collapse" data-target="#peter">Peter Pan</a>
+        </h3>
+        </div>
+        <div class="collapse show" id="peter" data-parent="#accordion">
+            <div class="card-body">
+                <p class="d-none d-sm-block">. . .</p>
+            </div>
+        </div>
+    </div>
+</div>
+```
+## Tooltips and Modals
+### Tooltips
+1. Tooltip over a button
+
+- `data-html="true"`: the tooltip can be styled using html
+- `title`: the content of the tooltip
+- `data-placement="bottom"`: the tooltip will be displayed to the bottom of the button
+
+```html
+<a role="button" class="btn btn-warning btn-reserve btn-sm" 
+    href="#reserveForm" data-toggle="tooltip" data-html="true" 
+    title="Or Call us at <br/><strong>+852 12345678</strong>"
+    data-placement="bottom">Reserve Table</a>
+```
+2. Add a script (jQuery syntax) to enable the tooltip
+```html
+<script>
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>
+```
+
+### Modals
+1. Add a link that could trigger the modal
+```html
+<span class="navbar-text">
+    <a data-toggle="modal" data-target="#loginModal">
+        <span class="fa fa-sign-in"></span> Login
+    </a>
+</span>
+```
+
+2. Add a modal
+
+- `data-dismiss="modal"`: when clicks the button, dismiss the modal
+```html
+<div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" role="content">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Login</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+```
+## Carousels
+1. Add a carousel
+```html
+<div class="row row-content">
+    <div class="col">
+        <div id="mycarousel" class="carousel slide" data-ride="carousel">
+
+        </div>
+    </div>
+</div>
+```
+
+2.  Add carousel content
+```html
+<div class="carousel-inner" role="listbox">
+   <div class="carousel-item active">
+        <img class="d-block img-fluid" src="img/uthappizza.png" alt="uthappizza">
+        <div class="carousel-caption d-none d-md-block">
+            ...
+        </div>
+    </div>
+</div>
+```
+3. Add styling to properly render the carousel
+```css
+.carousel-item {
+  height: 300px;
+}
+
+.carousel-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 300px;
+}
+```
+4. Add slide indicator  
+```html
+<ol class="carousel-indicators">
+    <li data-target="#mycarousel" data-slide-to="0" class="Active"></li>
+    <li data-target="#mycarousel" data-slide-to="1"></li>
+    <li data-target="#mycarousel" data-slide-to="2"></li>
+</ol>
+```
+
+5. Add carousel manual control
+```html
+<a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+</a>
+<a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+</a>
+```
 
 
 
