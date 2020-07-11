@@ -5,7 +5,8 @@
     - [State and Props](#state-and-props)
     - [Handling Events](#handling-events)
     - [Lifting State Up](#lifting-state-up)
-3. 
+    - [Lifecycle Methods](#lifecycle-methods)
+
 ## JSX
 _Syntactic extensions to JavaScript which enables expressing react elements using HTML like syntax_
 - Avoid separation of rendering logic from UI logic
@@ -65,9 +66,18 @@ _Move the state to the common ancestor to make sure any state changes will be se
 ### Lists and Keys
 - Keys should be given to elements inside the array, to help indentify which items have changed
 
+### Lifecycle Methods
+- Mounting: after creation
+- Updating
+- Unmounting: no longer needed, unmount from the hierarchy
 
-
-
+#### Mounting
+_Called when an instance of a component is being created and inserted into the DOM_
+- constructor()
+- getDerivedStateFromProps()
+- render()
+- componentDidMount(): use when need to execute somthing after component gets added into the DOM
+- earlier deprecated method: componentWillMount()
 
 
 
