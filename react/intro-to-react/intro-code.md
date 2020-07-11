@@ -1,6 +1,6 @@
 # Introduction to React
 1. [Reactstrap Configuration](#reactstrap-configuration)
-2. [React Component](#reactstrap-component)
+2. [React Component](#react-component)
 
 ## Reactstrap Configuration
 1. Install `reactstrap`
@@ -32,4 +32,75 @@ class App extends Component {
     );
   }
 }
+```
+## React Component
+### Basic Structure
+1. Create a component in `MenuComponent.js`
+```javascript
+import React, { Component } from 'react';
+
+class Menu extends Component {
+    ...
+}
+
+export default Menu;
+```
+2. Add a constructor
+```javascript
+constructor(props) {
+        super(props);     // supply the props to the super class
+        ...
+} 
+```
+3. Add render() method
+- Any react component should implement the `render()` method
+```javascript
+render() {
+    return (...);
+}
+```
+4. Export the component
+```javascript
+export default Menu;
+```
+### Add returning contents for the component
+5. Add return content
+```javascript
+const menu;
+
+return (
+  <div className="container">
+    <div className="row">
+      <Media list>
+        {menu}
+      </Media>
+    </div>
+  </div>
+);
+```
+6. Add state in constructor
+```javascript
+this.state = { // stores properties the component can make use of
+  dishes: [...]
+}
+```
+7. Make use of the dishes and construct the menu
+- `key={dish.id}`: when construct a list of items, every item needs a key attribute to be specified for it. Helps React recognize each item.
+- `mt-5`: top margin of 5
+- `tag="li"`: so can display a list of item
+```javascript
+const menu = this.state.dishes.map((dish) => {
+  return (
+    <div key={dish.id} className="col-12 mt-5">
+      <Media tag="li">...</Media>
+    </div>
+  );
+});
+```
+8. Make use of the menu Component to `App.js`
+```javascript
+import Menu from './components/MenuComponent';
+...
+<Menu />
+...
 ```
