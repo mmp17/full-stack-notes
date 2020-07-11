@@ -1,6 +1,8 @@
-# Reactstrap
+# Introduction to React
+1. [Reactstrap Configuration](#reactstrap-configuration)
+2. [React Component](#reactstrap-component)
 
-## Configuration
+## Reactstrap Configuration
 1. Install `reactstrap`
 ```shell
 yarn add bootstrap@4.0.0
