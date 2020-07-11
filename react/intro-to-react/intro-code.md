@@ -115,3 +115,23 @@ import Menu from './components/MenuComponent';
 ```javascript
 const menu = this.props.dishes.map((dish) => {
 ```
+### Handling Event
+1. Add a state in props
+```javascript
+this.state = { 
+  selectedDish: null
+}
+```
+2. Add the event handler to the element
+```javascript
+<Card onClick={() => this.onDishSelect(dish)}>
+```
+3. Implement the event handler
+```javascript
+onDishSelect(dish) {
+  this.setState({
+    selectedDish: dish
+  });
+}
+```
+
