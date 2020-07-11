@@ -63,7 +63,7 @@ render() {
 ```javascript
 export default Menu;
 ```
-### Add returning contents for the component
+### Adding contents for the component
 5. Add return content
 ```javascript
 const menu;
@@ -103,4 +103,15 @@ import Menu from './components/MenuComponent';
 ...
 <Menu />
 ...
+```
+### State and Props
+1. Add a `shared` subfolder under `src` to store all information that is used by components
+2. Update `App.js` to add dishes to the state
+3. Pass dishes to the Menu component
+```javascript
+<Menu dishes={this.state.dishes}/>
+```
+4. Update `MenuComponent`to make use of the props
+```javascript
+const menu = this.props.dishes.map((dish) => {
 ```
