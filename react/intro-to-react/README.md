@@ -6,6 +6,8 @@
     - [Handling Events](#handling-events)
     - [Lifting State Up](#lifting-state-up)
     - [Lifecycle Methods](#lifecycle-methods)
+3. [React Component Types](#react-component-types)
+
 
 ## JSX
 _Syntactic extensions to JavaScript which enables expressing react elements using HTML like syntax_
@@ -47,7 +49,7 @@ this.setState({
 });
 ```
 #### Props
-_A parent component stores the state and the state information can be passed to the chidren in the use of props in the form of attributes_
+_A parent component stores the state and the state information can be passed to the children in the use of props in the form of attributes_
 - can pass in multiple attributes
 ```javascript
 <Dishdetail dish={this.state.dish} comments={this.state.comments} />
@@ -64,7 +66,7 @@ _Move the state to the common ancestor to make sure any state changes will be se
 - Changes to data in one component needs to be reflected in another component
 
 ### Lists and Keys
-- Keys should be given to elements inside the array, to help indentify which items have changed
+- Keys should be given to elements inside the array, to help identify which items have changed
 
 ### Lifecycle Methods
 - Mounting: after creation
@@ -76,8 +78,44 @@ _Called when an instance of a component is being created and inserted into the D
 - constructor()
 - getDerivedStateFromProps()
 - render()
-- componentDidMount(): use when need to execute somthing after component gets added into the DOM
+- componentDidMount(): use when need to execute something after component gets added into the DOM
 - earlier deprecated method: componentWillMount()
+
+## React Component Types
+- Presentational vs Container
+- Skinny vs Fat
+- Dumb vs Smart
+- Stateless vs Stateful
+
+### Presentational and Container Components
+#### Presentational Components
+_Rendering the view based on the props passed to them_
+- Do not maintain local state
+- Can be relaxed to maintain only UI state than data
+
+#### Container Components
+_Make use of the presentational components for rendering and pass props to them, responsible for storing the state_
+- Data fetching, state updates
+- Can wrap presentational components in wrapping divs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
