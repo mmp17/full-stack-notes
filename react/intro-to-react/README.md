@@ -7,6 +7,9 @@
     - [Lifting State Up](#lifting-state-up)
     - [Lifecycle Methods](#lifecycle-methods)
 3. [React Component Types](#react-component-types)
+    - [Presentational and Container Components](#presentational-and-container-components)
+    - [Class Component](#class-component)
+    - [Functional Component](#functional-component)
 
 
 ## JSX
