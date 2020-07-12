@@ -127,7 +127,24 @@ _Simplest way to define React components_
 - Receives a "props" as a parameter
 - Cannot have local state or access lifecycle hooks
 
-
+Method 1:
+```javascript
+function RenderMenuItem({ dish, onClick }) {
+  return ( ... );
+} 
+```
+Method 2: make use of another functional component
+```javascript
+const Menu = (props) => {
+  const menu = props.dishes.map((dish) => {
+    return (
+      <div key={...} className="...">
+        <RenderMenuItem dish={...} onClick={...} />
+      </div>
+    );
+  });
+}
+```
 
 
 
