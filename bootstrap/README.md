@@ -31,7 +31,7 @@
 *   Media Queries
 
 ## Viewport
-```
+```html
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 ```
 Ensures the screen width is set to the device width and the content is rendered with this width in mide
@@ -54,25 +54,25 @@ Ensures the screen width is set to the device width and the content is rendered 
 *   Each row is divided into 12 columns
     *   All of the 12 columns will automatically adjust itself to the width that is allowed for the content
 *   Specify how many columns each piece of content will occupy within a row, all adding up to 12
-```
+```css
 .col-*, .col-sm-*, etc.
 ```
 
 ### Auto-Layout Columns
 
 ### Vertical Alignment
-```
+```html
 <div class="row align-item-center">
 ```
 
 ### Horizontal Alignment
-```
+```html
 <div class="row justify-content-center">
 ```
 *   col-auto: the number of columns the div occupies will be automatically determined by the content
 
 ### Column Offsets
-```
+```html
 <div class="col-sm-4 offset-sm-1">
 ```
 Example: shift 1 column right
@@ -81,7 +81,7 @@ Example: shift 1 column right
 
 ## Media Queries
 _Apply styles based on the size of the viewport_
-```
+```css
 @media (min-width:992px) {
 	/* Customized CSS styles /*
 }
@@ -92,7 +92,7 @@ _A lightweight Javascript library_
 *   Bootstrap JS is built on jQuery
 
 ### Syntax
-```
+```jquery
 $(selector).action()
 ```
 *   $: define/access jQuery
@@ -106,10 +106,78 @@ $(selector).action()
 *   Are compiled into traditional CSS syntax automatically before use in a web page
 
 ### Variables
+- Less: 
+```less
+@lt-gray: #ddd;
+```
+- Scss:
+```scss
+$lt-gray: #ddd;
+```
 ### Nesting
+- Less:
+```less
+.carousel {
+	background:@background-dark;
+}
+```
+- Scss:
+```less
+.carousel {
+	background:$background-dark;
+}
+```
+
 ### Mixins
+- Less:
+```less
+.zero-margin{
+	...
+}
+.row-content {
+	.zero-margin;
+	...
+}
+```
+- Scss:
+```scss
+@mixin zero-margin{
+	...
+}
+.row-content {
+	@include zero-margin;
+	...
+}
+```
+
 ### Mixins with Parameters
+- Less: need to initialize parameters
+```less
+.zero-margin (@pad-up-dn: 0px) {
+	...
+}
+.row-content {
+	.zero-margin(50px, 0px);
+	...
+}
+```
+- Scss: no need to initialize parameters
+```less
+@mixin zero-margin (@pad-up-dn) {
+	...
+}
+.row-content {
+	@include zero-margin(50px, 0px);
+	...
+}
+```
+
 ### Mathematical Operations
+```less
+.carousel-item .item-large{
+	height: @carousel-item0height * 2;
+}
+```
 
 ## Deployment Check
 ### CSS Check
