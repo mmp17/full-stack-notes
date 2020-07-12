@@ -79,7 +79,21 @@ _Called when an instance of a component is being created and inserted into the D
 - getDerivedStateFromProps()
 - render()
 - componentDidMount(): use when need to execute something after component gets added into the DOM
-- earlier deprecated method: componentWillMount()
+
+Deprecated Method:
+- componentWillMount()
+
+#### Updating
+_Called when a component is being re-rendered, can be caused by changes to props/state_
+- getDerivedStateFromProps()
+- shouldComponentUpdate(): return Boolean, if False - inform react's rendering process that this component will never update, so no need to consider when re-rendering
+- render(): called when every time the component is re-rendered
+- getSnapshotBeforeUpdate(): e.g. retain the scrolling position when scrolling
+- componentDidUpdate()
+
+Deprecated methods:
+- componentWillReceiveProps()
+- componentWillUpdate()
 
 ## React Component Types
 - Presentational vs Container
@@ -98,7 +112,17 @@ _Make use of the presentational components for rendering and pass props to them,
 - Data fetching, state updates
 - Can wrap presentational components in wrapping divs
 
+### Class Component
+- Extend React.Component to get class COMPONENTS
+- Need to implement the render() method to return the view
+- Can have local state
+- Lifecycle hooks
 
+### Functional Component
+_Simplest way to define React components_
+- Returns a React element or a collection of elements that define the view
+- Receives a "props" as a parameter
+- Cannot have local state or access lifecycle hooks
 
 
 
