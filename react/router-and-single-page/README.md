@@ -1,6 +1,7 @@
 # React Router and Single Page Applications
 1. [React Virtual DOM](#react-virtual-dom)
 2. [React Router](#react-router)
+3. [Single Page Applications (SPA)](#single-page-applications-spa)
 
 ## React Virtual DOM
 _A lightweight Representation of the Browser DOM, a React object_
@@ -59,6 +60,10 @@ _Supported through `<Link>` and `<NavLink>`_
 - `<Link>`: creates links in the application, rendered as `<a>`
 - `<NavLink>`: attaches the active CSS class to the link when its prop matches the current location
 
-
+## Single Page Applications (SPA)
+_A web application that fits in a single page_
+- No need to reload the entire page
+- Most resources are retrieved with a single page load
+- Redraw parts of the  page without requiring a full server roundtrip
 
 
