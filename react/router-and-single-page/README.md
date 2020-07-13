@@ -40,8 +40,17 @@ _Collection of navigational components_
 -_Route Matching components: `<Route>` and `<Switch>`_
 - `<Route>` path: enable specification of the current location's pathname
 - `<Route>` component: specifies the corresponding view for the location
+    ```jsx
+    <Route path="/home" component={HomePage} />
+    ```
 -  `exact` attribute: ensures the path must be exactly matched
-- `<Redirect>`: default route specification
+    ```jsx
+    <Route exact path="/home" ... />
+    ```
+- `<Redirect>`: default route specification, anything that doesn't match the `<Route>`s will be redirected to the location
+    ```jsx
+    <Redirect to="/home" />
+    ```
 - `<Switch>`: grouping together several routes
   - iterate over all the childrean and find the first matches the path
 
