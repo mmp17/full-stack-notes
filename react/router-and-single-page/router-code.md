@@ -1,6 +1,7 @@
 # React Router and Single Page Applications
   1. [React Fragment](#react-fragment)
   2. [React Router](#react-router)
+  3. [Single Page Applications](#single-page-applications)
 
 ## React Fragment
 _Enable to group a bunch of React elements, alternative way of div_
@@ -62,7 +63,23 @@ const HomePage = () => {
   </NavItem>
 </Nav>
 ```
-
+## Single Page Applications
+### BreadCrumb
+```javascript
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
+...
+<div className="row">
+    <Breadcrumb>
+        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+        <BreadcrumbItem active>Contact Us</BreadcrumbItem>
+    </Breadcrumb>
+    <div className="col-12">
+        <h3>Contact Us</h3>
+        <hr />
+    </div>
+</div>
+```
 
 
 
