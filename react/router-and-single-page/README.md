@@ -28,7 +28,11 @@ _Run a diffing algorithm to detect nodes that have changed_
 ## React Router
 _Collection of navigational components_
 - Enable navigation among views
-- Router components, route matching components, and navigation components
+- Router components, Route matching components, and Navigation components
+- Route passes 3 props to the component
+  - match: provides information about how a <Route path> matched the URL
+  - location: URL location
+  - history will allow you to go back
 
 ### Web App Routing
 - `react-router-dom`
@@ -54,6 +58,13 @@ _Collection of navigational components_
     ```
 - `<Switch>`: grouping together several routes
   - iterate over all the childrean and find the first matches the path
+
+### Router Parameters
+- Can be specified in the path specification as a token, e.g., `menu/:id` where id is the token
+- Can be specified using a link parameter, e.g. `<Link to{`/menu/${dish.id}`} >`
+- match Object
+  - params: key/value pair parsed from the URL
+  - e.g. `/menu/42` will result in `match.params.id`: `42`
 
 ### Navigation
 _Supported through `<Link>` and `<NavLink>`_
