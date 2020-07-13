@@ -26,6 +26,7 @@ import { BrowserRouter } from 'react-router-dom';
 </BrowserRouter>
 ```
 2. Configure the Router
+- `<Switch>`: grouping together several routes
 ```jsx
 <Switch>
   <Route path="/home" component={HomePage} />
@@ -51,6 +52,7 @@ const HomePage = () => {
 ```
 
 4. Configure `<NavLink>`
+- `<NavLink>`: attaches the active CSS class to the link when its prop matches the current location
 ```jsx
 <Nav navbar>
   <NavItem>
