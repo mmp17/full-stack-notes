@@ -1,5 +1,6 @@
 # React Router and Single Page Applications
 1. [React Virtual DOM](#react-virtual-dom)
+2. [React Router](#react-router)
 
 ## React Virtual DOM
 _A lightweight Representation of the Browser DOM, a React object_
@@ -22,3 +23,33 @@ _Run a diffing algorithm to detect nodes that have changed_
   - new reconciliation algorithm
   - faster in performing diffing
   - incremental rendering
+
+## React Router
+_Collection of navigational components_
+- Enable navigation among views
+- Router components, route matching components, and navigation components
+
+### Web App Routing
+- `react-router-dom`
+- Router component: `<BrowserRouter>`
+  - Creates specialized history object
+  - `<HashRouter>` if using a static file server, enable navigation to URLs that contain hashes
+  - Enclose the app in BrowserRouter
+  
+### Route Matching
+-_Route Matching components: `<Route>` and `<Switch>`_
+- `<Route>` path: enable specification of the current location's pathname
+- `<Route>` component: specifies the corresponding view for the location
+-  `exact` attribute: ensures the path must be exactly matched
+- `<Redirect>`: default route specification
+- `<Switch>`: grouping together several routes
+  - iterate over all the childrean and find the first matches the path
+
+### Navigation
+_Supported through `<Link>` and `<NavLink>`_
+- `<Link>`: creates links in the application, rendered as `<a>`
+- `<NavLink>`: attaches the active CSS class to the link when its prop matches the current location
+
+
+
+
