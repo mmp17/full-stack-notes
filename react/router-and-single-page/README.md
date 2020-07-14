@@ -2,6 +2,7 @@
 1. [React Virtual DOM](#react-virtual-dom)
 2. [React Router](#react-router)
 3. [Single Page Applications (SPA)](#single-page-applications-spa)
+4. [Code](https://github.com/vanessaaleung/full-stack-notes/blob/master/react/router-and-single-page/router-code.md)
 
 ## React Virtual DOM
 _A lightweight Representation of the Browser DOM, a React object_
