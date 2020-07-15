@@ -150,3 +150,13 @@ _Holds the current state value_
         ```
     - `mapDispatchToProps()`
         - receives the `dispatch()` method and returns an object full of functions that use `dispatch()`
+
+### React Redux Forms
+- Collection of reducer creators and action creators
+- Validation support
+- Form data stored in Redux store in a model
+
+#### Local Form
+_Maps form model to local state of the component_
+- Suitable when don't need form data persistence across component
+
