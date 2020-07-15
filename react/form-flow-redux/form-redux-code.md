@@ -3,6 +3,7 @@
 1. [Controlled Forms](#controlled-forms)
 2. [Controlled Form Validation](#controlled-form-validation)
 3. [Uncontrolled Forms](#uncontrolled-forms)
+4. [Redux](#redux)
 
 ## Controlled Forms
 1. Import components
@@ -168,10 +169,49 @@ handleLogin(event) {
 ```jsx
 innerRef={(input) => this.username = input}
 ```
+## Redux
+1. Install redux & react-redux
+```shell
+npm install redux react-redux
+```
+2. Add a `reducer.js` file to implement reducer functions
+3. Create a initialState const
+```javascript
+export const initialState = {
+  dishes: DISHES,
+  comments: COMMENTS,
+  leaders: LEADERS,
+  promotions: PROMOTIONS
+}
+```
+and remove state from the component
+4. Implement the `Reducer` function
+```javascript
+export const Reducer = (state = initialState, action) => {
+  return state;
+};
+```
+5. Add a `configureStore.js` file to store the configuration
+```javascript
+import { createStore } from 'redux';
+import { Reducer, initialState } from './reducer';
+```
+6. Implement the `ConfigureStore` method to configure Redux Store
+```javascript
+export const ConfigureStore = () => {
+  const store = createStore(
+    Reducer, 
+    initialState
+  );
 
-
-
-
+  return store;
+}
+```
+7. Make use of the store
+- In `App.js` import
+```javascript
+import { Provider } from 'react-redux';
+```
 
 
 
