@@ -5,6 +5,8 @@
     - [Model View Controller Framework](#model-view-controller-mvc-framework)
     - [Model View View-Model (MVVM)](#model-view-view-model-mvvm)
     - [Flux Architecture](#flux-architecture)
+    - [Intro to Redux](#intro-to-redux)
+    - [React with Redux](#react-with-redux)
 4. Redux Form
 
 ##  Controlled Forms
@@ -66,14 +68,66 @@ _Storehouse for the application state and any business logics that modifies the 
 #### Action
 _Request for changes_
 
-### Dispatcher
+#### Dispatcher
 _Controlling unit for serializing any actions request for changing the store_
 - No other way to change the state of the application
 
-### View
+#### View
 _Subscribe to the store_
 - When the store updates it state, controller views will re-render parts of views
 - Any change want to make in the store because of user's interaction will have to be reflected back to the dispatcher in the form of action
 
+### Intro to Redux
+_Realization of Flux-like Architecture_
+- Predictable state container for JS apps
+- Is different from React
+- Single store and single state tree enables powerful techniques:
+    - Logging: changes of states
+    - API hanlding
+    - Undo/redo: of operations
+    - State persistence
+    - "time-traveling debugging"
 
+#### Main Principles
+- Single state object tree within a single store
+- State is read-only
+    - Changes should only be done through actions
+- Changes are made with pure functions
+    - Pure function: take previous state and action and return next state
+    - No mutation of the previous state
 
+#### Redux Data Flow
+<img src="https://www.esri.com/arcgis-blog/wp-content/uploads/2017/09/react-redux-overview.png" width="600px">
+
+- State can only be modified by reducer function
+
+##### Reducer
+_Pure functions that take the  current state and action, return a new state_
+- Update data immutably
+
+##### State
+- Stored in plain JS object
+
+##### Action
+_Plain JS object with a type field that specifies how to change something in the state (payload)_
+
+#### Redux Store
+_Holds the current state value_
+- Created using `createStore()`
+- Supplies 3 methods:
+    - `dispatch()`: state update with provided action object
+    - `getState()`: returns the current state
+    - `subscribe()`: accepts a callback cuntion that will be run every time an action is dispatched
+
+### React with Redux
+- Use `react-redux` package for binindg
+    - `connect()`: generates a wrapper "container" component taht subscribes to the store
+    - Surround the App root with `<Provider>`
+        - Takes the store as an attribute
+        - Makes store accessible to all connected components
+- `connect()` function takes two optional arguments:
+    - `mapStateToProps()`
+        - called every time store state changes, return s an object full of data with each field being a prop for the wrapped component
+        - state will be mapped into and become available to the props of the component
+    - `mapDispatchToProps()`
+        - receives the `dispatch()` method and returns an object full of functions that use `dispatch()`
