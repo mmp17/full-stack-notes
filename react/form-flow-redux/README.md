@@ -155,6 +155,7 @@ _Holds the current state value_
 - Collection of reducer creators and action creators
 - Validation support
 - Form data stored in Redux store in a model
+- No need of state, handleInputChange, handleBlur, validate, and `FormFeedback`
 
 #### Local Form
 _Maps form model to local state of the component_
