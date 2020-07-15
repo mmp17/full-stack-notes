@@ -7,7 +7,8 @@
     - [Flux Architecture](#flux-architecture)
     - [Intro to Redux](#intro-to-redux)
     - [React with Redux](#react-with-redux)
-4. Redux Form
+4. [React Redux Form](#react-redux-form)
+5. [Code](https://github.com/vanessaaleung/full-stack-notes/blob/master/react/form-flow-redux/form-redux-code.md)
 
 ##  Controlled Forms
 _Form information is directly tied into the **state** of the component_
