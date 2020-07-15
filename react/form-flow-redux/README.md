@@ -120,14 +120,33 @@ _Holds the current state value_
     - `subscribe()`: accepts a callback cuntion that will be run every time an action is dispatched
 
 ### React with Redux
-- Use `react-redux` package for binindg
-    - `connect()`: generates a wrapper "container" component taht subscribes to the store
+- Use `react-redux` package for binding
+    - `connect()`: generates a wrapper "container" component that subscribes to the store
     - Surround the App root with `<Provider>`
         - Takes the store as an attribute
         - Makes store accessible to all connected components
+        ```jsx
+        <Provider store={store}>
+            <BrowserRouter>
+              <div className="App">
+                <Main />
+              </div>
+            </BrowserRouter>
+        </Provider>
+        ```
 - `connect()` function takes two optional arguments:
     - `mapStateToProps()`
         - called every time store state changes, return s an object full of data with each field being a prop for the wrapped component
         - state will be mapped into and become available to the props of the component
+        ```jsx
+        const mapStateToProps = state => {  // state: from redux store
+            return {
+              dishes: state.dishes,
+              comments: state.comments,
+              promotions: state.promotions,
+              leaders: state.leaders
+            }
+        }
+        ```
     - `mapDispatchToProps()`
         - receives the `dispatch()` method and returns an object full of functions that use `dispatch()`
