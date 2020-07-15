@@ -4,6 +4,7 @@
 2. [Controlled Form Validation](#controlled-form-validation)
 3. [Uncontrolled Forms](#uncontrolled-forms)
 4. [Redux](#redux)
+5. [React Redux Form)(#react-redux-form)
 
 ## Controlled Forms
 1. Import components
@@ -252,3 +253,21 @@ const mapStateToProps = state => {  // state: from redux store
 <Home dish={this.props.dishes.filter(...)} />
 ```
    
+## React Redux Form
+1. Install the package
+```shell
+npm install react-redux-form
+```
+2. Get rid of state, handleInputChange, handleBlur, , validate, and `FormFeedback`, which will all be managed automatically by `react-redux-form`
+3. Replace `<FormGroup row>` with `<Row className="form-group">`
+4. Replace `<Input>` with `<Control.text>`, get rid of `type={} valid={} invalid={} onBlur={} onChange={}`, add `model="firstname"` and `className="form-control"`
+5. Replace `<FormGroup check>` with `<div className="form-check">`, replace `<Input type="checkbox">` with `<Control.checkbox className="form-check-input">`, get rid of `checked={}` 
+6. Replace `<Input type="select">` with `Control.select`
+7. Replace `<Input type="textarea">` with `Control.textarea`
+8. Edit the `handleSubmit` function to
+```javascript
+handleSubmit(values) {
+    console.log("Current State is: " + JSON.stringify(values));
+    alert("Current State is: " + JSON.stringify(values));
+}
+```
