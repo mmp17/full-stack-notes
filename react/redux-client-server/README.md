@@ -26,7 +26,16 @@ _Functions that create actions_
 ### Splitting and Combining Reducers
 - Split the reducer into simpler reducer funcitons that manage only parts of the global state
 - Re-combine the simpler functions to generate the overall state
-
+  ```js
+  const store = createStore(
+    combineReducers({
+      dishes: Dishes,
+      comments: Comments,
+      promotions: Promotions,
+      leaders: Leaders
+    })
+  );
+  ```
 ## Redux Thunk
 
 ## Client-Server Communication
