@@ -2,6 +2,7 @@
 
 1. [Controlled Forms](#controlled-forms)
 2. [Controlled Form Validation](#controlled-form-validation)
+3. [Uncontrolled Forms](#uncontrolled-forms)
 
 ## Controlled Forms
 1. Import components
@@ -139,6 +140,33 @@ validate(firstname, lastname, telnum, email) {
 ```jsx
 valid={errors.firstname === ''}
 invalid={errors.firstname !== ''}
+```
+
+## Uncontrolled Forms
+1. Create the form
+```jsx
+<Form onSubmit={this.handleLogin}>
+  <FormGroup>
+    <Label htmlFor="username">Username</Label>
+    <Input type="text" id="username" name="username" />
+  </FormGroup>
+  ...
+  <Button type="submit" value="submit" className="bg-primary" color="primary">Login</Button>
+</Form>
+```
+2. Retrieve input directly from the DOM
+```javascript
+handleLogin(event) {
+    this.toggleModal();
+    alert(" Username: " + this.username.value + 
+          " Password: " + this.password.value +
+          " Remeber: " + this.remember.checked);
+    event.preventDefault();
+}
+```
+3. Add the `innerRef` to the `Input`
+```jsx
+innerRef={(input) => this.username = input}
 ```
 
 
