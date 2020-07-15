@@ -4,6 +4,7 @@
 3. [Redux](#redux)
     - [Model View Controller Framework](#model-view-controller-mvc-framework)
     - [Model View View-Model (MVVM)](#model-view-view-model-mvvm)
+    - [Flux Architecture](#flux-architecture)
 4. Redux Form
 
 ##  Controlled Forms
@@ -51,6 +52,28 @@ _Model-View-Binder_
 - Encapsulates that information required for the view
 - Abstraction of view that exposes public properties and commands
 - Declarative data binding
+
+### Flux Architecture
+<img src="https://i.stack.imgur.com/qmqki.png" width="600px">
+
+- Unidirecional Data Flow
+    - tackles MVC's cascading flow of updates within the models
+    - All updates have unidirecional flow
+
+#### Store
+_Storehouse for the application state and any business logics that modifies the state_
+
+#### Action
+_Request for changes_
+
+### Dispatcher
+_Controlling unit for serializing any actions request for changing the store_
+- No other way to change the state of the application
+
+### View
+_Subscribe to the store_
+- When the store updates it state, controller views will re-render parts of views
+- Any change want to make in the store because of user's interaction will have to be reflected back to the dispatcher in the form of action
 
 
 
