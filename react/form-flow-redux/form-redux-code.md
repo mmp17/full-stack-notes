@@ -211,8 +211,44 @@ export const ConfigureStore = () => {
 - In `App.js` import
 ```javascript
 import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
 ```
-
-
-
+- Makes store accessible to all connected components
+```jsx
+const store = ConfigureStore();
+```
+```jsx
+<Provider store={store}>
+    <BrowserRouter>
+      <div className="App">
+        <Main />
+      </div>
+    </BrowserRouter>
+</Provider>
+```
+8. Connect React component with Redux store
+```javascript
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+```
+- `withRouter`: connect component to React Router
+- `connect()`: generates a wrapper "container" component that subscribes to the store
+```jsx
+export default withRouter(connect(mapStateToProps)(Main));
+```
+- `mapStateToProps()`:state will be mapped into and become available to the props of the component
+```jsx
+const mapStateToProps = state => {  // state: from redux store
+    return {
+      dishes: state.dishes,
+      comments: state.comments,
+      promotions: state.promotions,
+      leaders: state.leaders
+    }
+}
+```
+- change `this.state.xxx` to `this.props.xxx`
+```jsx
+<Home dish={this.props.dishes.filter(...)} />
+```
    
