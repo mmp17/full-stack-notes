@@ -1,6 +1,7 @@
 # React Forms, Flow Architecture and Introduction to Redux
 
 1. [Controlled Forms](#controlled-forms)
+2. [Controlled Form Validation](#controlled-form-validation)
 
 ## Controlled Forms
 1. Import components
@@ -79,5 +80,71 @@ handleInputChange(event) {
         value={this.state.firstname}
         onChange={this.handleInputChange} />
 ```
+- Bind the functions
+```javascript
+this.handleSubmit = this.handleSubmit.bind(this);
+```
+
+## Controlled Form Validation
+1. Add `touched` to the state
+```javascript
+touched: {
+    firstname: false,
+    lastname: false,
+    telnum: false,
+    email: false
+}
+```
+
+2. Add the `handleBlur` method to indicate which field has been modified
+```javascript
+handleBlur = (field) => (event) => {
+    this.setState({
+        touched: { ...this.state.touched, [field]: true}
+    });
+}
+```
+- Bind the functions
+```javascript
+this.handleBlur = this.handleBlur.bind(this);
+```
+
+3. Implement the `handleBlur` method in each field
+```jsx
+onBlur={this.handleBlur('firstname')}
+```
+4.  Add the `validate` method:
+```javascript
+validate(firstname, lastname, telnum, email) {
+    const errors = {
+        firstname: '',
+        lastname: '',
+        telnum: '',
+        email: ''
+    };
+
+    if (this.state.touched.firstname && firstname.length < 3) {
+        errors.firstname = 'First Name should be >= 3 characters';
+    }
+    else if (this.state.touched.firstname && firstname.length > 10) {
+        errors.firstname = 'First Name should be <= 10 characters';
+    }
+}
+```
+5. Display the errors in the form
+```jsx
+<FormFeedback>{errors.firstname}</FormFeedback>
+```
+6. Set the valid flag for each field
+```jsx
+valid={errors.firstname === ''}
+invalid={errors.firstname !== ''}
+```
+
+
+
+
+
+
 
    
