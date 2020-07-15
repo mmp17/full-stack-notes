@@ -4,7 +4,8 @@
 2. [Controlled Form Validation](#controlled-form-validation)
 3. [Uncontrolled Forms](#uncontrolled-forms)
 4. [Redux](#redux)
-5. [React Redux Form)(#react-redux-form)
+5. [React Redux Form](#react-redux-form)
+6. [React Redux Form Validation](#react-redux-form-validation)
 
 ## Controlled Forms
 1. Import components
@@ -270,4 +271,35 @@ handleSubmit(values) {
     console.log("Current State is: " + JSON.stringify(values));
     alert("Current State is: " + JSON.stringify(values));
 }
+```
+
+## React Redux Form Validation
+1. Create validation functions
+```js
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len); 
+const minLength = (len) => (val) => !(val) || (val.length >= len);
+const isNumber = (val) => !isNaN(Number(val));
+const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+```
+2. Make use of the functions in the fields
+```jsx
+validators={{
+    required, minLength: minLength(3),
+    maxLength: maxLength(15)
+}}
+```
+3. Configure Errors
+- `className="text-danger"`: errors displayed in red
+- `show="touched"`: only show messages after the item is touched
+- `model=".firstname"`: apply to the firstname model
+```jsx
+<Errors className="text-danger" model=".firstname"
+    show="touched"
+    messages={{
+        required: 'Required',
+        minLength: 'Must be greater than 2 characters',
+        maxLength: 'Must be 15 characters or less'
+    }}
+/>
 ```
