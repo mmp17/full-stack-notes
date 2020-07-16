@@ -119,7 +119,7 @@ export const DISHES_LOADING = 'DISHES_LOADING';
 export const DISHES_FAILED = 'DISHES_FAILED';
 export const ADD_DISHES = 'ADD_DISHES';
 ```
-5. Create featchDishes action in `ActionCreators.js`
+5. Create `fetchDishes` action in `ActionCreators.js`
 ```js
 export const fetchDishes = () => (dispatch) => {
   // first dispatch
@@ -129,4 +129,47 @@ export const fetchDishes = () => (dispatch) => {
     dispatch(addDishes(DISHES))
   }, 2000);
 }
+```
+6. Modify the `Dishes` reducer
+```js
+export const Dishes = (state = {
+  isLoading: true,
+  errMess: null,
+  dishes: []
+}, action) => {
+  switch(action.type) {
+    case ActionTypes.ADD_DISHES:
+      return {...state, 
+        isLoading: false,
+        errMess: null,
+        dishes: action.payload};
+    ...
+  }
+}
+```
+7. Dispatch `fetchDishes` in component
+```js
+const mapDispatchToProps = (dispatch) => ({
+  ...,
+  fetchDishes: () => {dispatch(fetchDishes())}
+});
+```
+8. Make use of the `fetchDishes`
+```js
+componentDidMount() {
+    this.props.fetchDishes();
+}
+```
+9. Modify how to pass info to child component
+
+From
+```js
+<Home dish={this.props.dishes} />
+```
+To
+```js
+<Home dish={this.props.dishes.dishes} 
+      dishesLoading={this.props.dishes.isLoading}
+      dishesErrMess={this.props.dishes.errMess}
+   />
 ```
