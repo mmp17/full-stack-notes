@@ -2,7 +2,9 @@
 1. [Redux Actions](#redux-actions)
 2. [Redux Thunk](#redux-thunk)
 3. [Client-Server Communication](#client-server-communication)
-    - [Networking Essentials](#networking-essentials)
+    - [Networking Alphabet Soup](#networking-alphabet-soup)
+    - [Client-Server Communication](#client-server-communication)
+    - [Hypertext Transfer Protocol (HTTP)](#hypertext-transfer-protocol-http)
 4. [Fetch](#fetch)
 5. [React Animations](#react-animations)
 6. [Code](https://github.com/vanessaaleung/full-stack-notes/blob/master/react/redux-client-server/redux-client-server-code.md)
@@ -104,9 +106,43 @@ _Middleware that allows you to write action creators that return a function inst
   - ongoing "background thread" like processing behavior
 
 ## Client-Server Communication
-### Networking Essentials
-#### Networking Alphabet Soup
-- HTTP: Communicating between the client and the server
+### Networking Alphabet Soup
+- HTTP: Communicating between the client and the server, application layer protocol
+- URL: Uniform  Resource Locator, string of characters seperated by slashes
+- JSON: JavaScript Object Notation, encoding data that is being shipped from the server side to the client side, or vice versa
+- XML: another way of encoding data
+- SOAP: higher level protocol that allows communication between distributed entities within the network
+- REST: Representational State Transfer
+- GET, PUT, POST, DELETE
+
+### Client-Server Communication
+- Network operations cause unexpected delays
+- Application need to recognize the asynchronous nature of communication - data is not instantaneously available
+
+### Hypertext Transfer Protocol (HTTP)
+_Encoding the messages exchanged between client and server side_
+- Allows retrieving interlinked text documents
+- HEAD, GET, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT
+
+#### HTTP Request Message
+<img src="https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP_RequestMessageExample.png" width="500px">
+
+#### HTTP Response
+##### Response Message
+<img src="https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/images/HTTP_ResponseMessageExample.png" width="500px">
+
+- Status Line: how the request has been processed and what is being sent back to the client is stored
+- Header: what is contained in the response message
+
+##### Response Codes
+<img src="https://www.steveschoger.com/status-code-poster/img/status-code.png" height="500px">
+
+##### Data Format
+- eXtensible Markup Language (XML)
+- Javascript Object Notation (JSON), mainly use
+    - Lightweight data interchange format
+    - Language independent
+    - A collection of name/value pairs
 
 ## Fetch
 
