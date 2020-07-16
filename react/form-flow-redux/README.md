@@ -151,6 +151,12 @@ _Holds the current state value_
         ```
     - `mapDispatchToProps()`
         - receives the `dispatch()` method and returns an object full of functions that use `dispatch()`
+        ```js
+        const mapDispatchToProps = (dispatch) => ({
+          addComment: (dishId, rating, author, comment) => 
+                dispatch(addComment(dishId, rating, author, comment))
+        });
+        ```
 
 ### React Redux Form
 - Collection of reducer creators and action creators
