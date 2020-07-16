@@ -21,6 +21,18 @@ _Functions that create actions_
 ### Actions and Reducers
 - Reducers take the previous state and action, return the next state
 - Actions typically handled through a switch statement switching on the action type
+  ```js
+  export const Comments = (state = COMMENTS, action) => {
+    switch(action.type) {
+      case ActionTypes.ADD_COMMENT:
+        var comment = action.payload;
+        ...
+        return state.concat(comment);
+      default:
+        return state;
+    }
+  }
+  ```
 - Returns the previous state in the default case
 
 ### Splitting and Combining Reducers
