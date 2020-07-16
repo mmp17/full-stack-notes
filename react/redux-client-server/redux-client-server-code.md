@@ -1,6 +1,7 @@
 # [Code] More Redux and Client-Server Communication
 1. [Combining Reducers](#combining-reducers)
 2. [Redux Actions](#redux-actions)
+3. [Redux Thunk](#redux-thunk)
 3. [Client-Server Communication](#client-server-communication)
 4. [Fetch](#fetch)
 5. [React Animations](#react-animations)
@@ -96,4 +97,36 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
 /> 
 ```
 
-
+## Redux Thunk
+_Log all the changes to the Redux store into the console_
+1. Install the packages
+```shell
+npm install redux-thunk redux-logger
+```
+2. In `configureStore.js`
+```js
+import { applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+```
+3. Apply applyMiddleware to the store, to make thunk and logger available to the application
+```js
+applyMiddleware(thunk, logger)
+```
+4. Add more action types in `ActionTypes.js`
+```js
+export const DISHES_LOADING = 'DISHES_LOADING';
+export const DISHES_FAILED = 'DISHES_FAILED';
+export const ADD_DISHES = 'ADD_DISHES';
+```
+5. Create featchDishes action in `ActionCreators.js`
+```js
+export const fetchDishes = () => (dispatch) => {
+  // first dispatch
+  dispatch(dishesLoading(true));
+  // after 2000 secs, second dispatch: pushes new dishes
+  setTimeout(() => {
+    dispatch(addDishes(DISHES))
+  }, 2000);
+}
+```
