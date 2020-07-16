@@ -2,6 +2,7 @@
 1. [Redux Actions](#redux-actions)
 2. [Redux Thunk](#redux-thunk)
 3. [Client-Server Communication](#client-server-communication)
+    - [Networking Essentials](#networking-essentials)
 4. [Fetch](#fetch)
 5. [React Animations](#react-animations)
 6. [Code](https://github.com/vanessaaleung/full-stack-notes/blob/master/react/redux-client-server/redux-client-server-code.md)
@@ -103,6 +104,9 @@ _Middleware that allows you to write action creators that return a function inst
   - ongoing "background thread" like processing behavior
 
 ## Client-Server Communication
+### Networking Essentials
+#### Networking Alphabet Soup
+- HTTP: Communicating between the client and the server
 
 ## Fetch
 
