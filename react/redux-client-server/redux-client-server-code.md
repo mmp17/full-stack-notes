@@ -103,6 +103,9 @@ _Log all the changes to the Redux store into the console_
 ```shell
 npm install redux-thunk redux-logger
 ```
+- redux-logger: prints out all actions that are dispatched
+<img src="logger.png" height="200px">
+
 2. In `configureStore.js`
 ```js
 import { applyMiddleware } from 'redux';
