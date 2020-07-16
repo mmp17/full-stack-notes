@@ -2,9 +2,10 @@
 1. [Combining Reducers](#combining-reducers)
 2. [Redux Actions](#redux-actions)
 3. [Redux Thunk](#redux-thunk)
-3. [Client-Server Communication](#client-server-communication)
-4. [Fetch](#fetch)
-5. [React Animations](#react-animations)
+4. [React Redux Form](#react-redux-form)
+5. [Client-Server Communication](#client-server-communication)
+6. [Fetch](#fetch)
+7. [React Animations](#react-animations)
 
 ## Combining Reducers
 1. Create a reducer function for each model and delete the `reducer.js` file
@@ -175,4 +176,64 @@ To
       dishesLoading={this.props.dishes.isLoading}
       dishesErrMess={this.props.dishes.errMess}
    />
+```
+
+## React Redux Form
+_When moving to other pages, the previous filled info will still remain filled_
+1. Add a new file named forms.js in the redux folder
+```js
+export const InitialFeedback = {
+    firstname: '',
+    lastname: '',
+    telnum: '',
+    email: '',
+    agree: false,
+    contactType: 'Tel.',
+    message: ''
+};
+```
+2. Configure Redux to store the form
+- import `createForms` to enable add the from state into the store
+```js
+import { createForms } from 'react-redux-form';
+```
+- add reducer functions and state information into create store
+- no need to write reducers / action creators, the package takes care of them
+```js
+combineReducers({
+  ...
+  ...createForms({
+    feedback: InitialFeedback
+  })
+})
+```
+3. Make use of the action
+```js
+import { actions } from 'react-redux-form';
+```
+- Dispatch the action
+```js
+const mapDispatchToProps = (dispatch) => ({
+  ...
+  resetFeedbackForm: () => { dispatch(actions.reset('feedback'))}
+});
+```
+- Send the attribute to the child component as props
+```js
+<Contact resetFeedbackForm={this.props.resetFeedbackForm} />
+```
+4. Create the form
+```js
+import { Control, Form , Errors, actions } from 'react-redux-form';
+```
+- modify `handleSubmit()`
+```js
+handleSubmit(values) {
+    ...
+    this.props.resetFeedbackForm();
+}
+```
+- change `<LocalForm>` to 
+```js
+<Form model="feedback">
 ```
