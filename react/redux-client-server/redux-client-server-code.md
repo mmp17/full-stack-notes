@@ -4,7 +4,7 @@
 3. [Redux Thunk](#redux-thunk)
 4. [React Redux Form](#react-redux-form)
 5. [Setting up a Server](#setting-up-a-server)
-6. [Fetch](#fetch)
+6. [Fetch from Server](#fetch-from-server)
 7. [React Animations](#react-animations)
 
 ## Combining Reducers
@@ -257,4 +257,35 @@ json-server --watch db.json -d 2000 -p 3001
 6. Verify the server is running
 - go to `http://localhost:3001/dishes`
 
-- change `<LocalForm>` to 
+## Fetch from Server
+1. install packages
+```shell
+npm install cross-fetch`
+```
+2. Run the server
+```shell
+json-server --watch db.json -d 2000 -3001
+```
+3. Create a `baseUrl.js` file in shared folder to set up communication with server
+```js
+export const baseUrl = 'http://localhost:3001/;'
+```
+4. In `ActionCreators.js`
+- import `baseUrl` to configure server
+```js
+import { baseUrl } from '../shared/baseUrl';
+```
+- remove simulation of server communication (`setTimeOut`)
+- configure the `fetchDishes()` action to fetch from server
+```js
+export const fetchDishes = () => (dispatch) => {
+  ...  
+  return fetch(baseUrl + 'dishes')
+            .then(response => response.json()) // convert response to json
+            .then(dishes => dispatch(addDishes(dishes)));
+};
+```
+5. Fetch image from server
+```js
+<CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
+```
