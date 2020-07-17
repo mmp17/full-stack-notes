@@ -202,8 +202,61 @@ _Mechanism that supports asynchronous computation_
     - Promise.resolve(Result)
     - Promise.reject(error)
 
-### Fetch
+### Fetch API
+_Modern replacement for XMLHttpRequest_
+- Provides an interface for fetching resources
+- Promise based
 
+### Fetch Abstractions
+- Request 
+- Response
+- Headers
+- Body: Declare what request/response/ content type is and how it should be handled
 
+### Usage
+```js
+fetch(BaseUrl + 'dishes')
+    .then(reponse => response.json()) // access to the response object
+    .then(data => console.log(data)) // chained
+    .catch(error => console.log(error.message));
+```
+- Posting data
+```js
+fetch(baseUrl + 'comments', {
+    method: 'POST',
+    body: JSON.stringify(newComment),
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    credentials: 'same-origin'
+})
+```
+
+- Dealing with Errors
+```js
+fetch(baseUrl + 'dishes')
+    .then(response => {
+        if (response.ok) {
+            return response;
+        }
+        else {
+            var error = new Error('Error' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+        }
+    },
+    // when promise is rejected
+    error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+    .then....
+    .catch(error => console.log(error.message));
+```
+- `Cross-Fetch`: support for Fetch  
+
+### Fetch Alternatives
+- Axios: wraps XMLHttpRequest and exports a higher level API
+- Superagent
 
 ## React Animations
