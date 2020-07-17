@@ -8,6 +8,7 @@
     - [Web Services](#web-services)
     - [Representational State Transfer (REST)](#representational-state-transfer-rest)
 4. [Fetch](#fetch)
+    - [Promises](#promises)
 5. [React Animations](#react-animations)
 6. [Code](https://github.com/vanessaaleung/full-stack-notes/blob/master/react/redux-client-server/redux-client-server-code.md)
 
@@ -188,5 +189,21 @@ _A style of software architecture for distributed hypermedia systems such as WWW
     - e.g. using cookies, client side database
     
 ## Fetch
+### Promises
+_Mechanism that supports asynchronous computation_
+- Proxy for a value not necessarily konwn when the promise is created
+- Represents a value that may be available now/future/never
+
+<img src="https://javascript.info/article/promise-basics/promise-resolve-reject.svg" width="500px">
+
+- Solves the callback hell (heavily nested callback code) problem
+- Can be chained
+- Can immediately return
+    - Promise.resolve(Result)
+    - Promise.reject(error)
+
+### Fetch
+
+
 
 ## React Animations
