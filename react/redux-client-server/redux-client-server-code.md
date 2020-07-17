@@ -3,7 +3,7 @@
 2. [Redux Actions](#redux-actions)
 3. [Redux Thunk](#redux-thunk)
 4. [React Redux Form](#react-redux-form)
-5. [Client-Server Communication](#client-server-communication)
+5. [Setting up a Server](#setting-up-a-server)
 6. [Fetch](#fetch)
 7. [React Animations](#react-animations)
 
@@ -237,3 +237,24 @@ handleSubmit(values) {
 ```js
 <Form model="feedback">
 ```
+
+## Setting up a Server
+_using json-server_
+1. Create a `json-server` folder
+2. Install `json-server`
+- `-g`: global module
+```shell
+sudo npm install -g json-server
+```
+3. Move `db.json` to the folder
+4. Create a  `public` folder in `json-server` and move the  `image` folder to `public`
+5. Keep json-server watch the update in `db.json` file
+- `-d 2000`: will serve the updated data back to the requester after a 2 seconds delay, simulate delay in accessing a server over the Internet
+- `-p 3001`: run on port 3001
+```shell
+json-server --watch db.json -d 2000 -p 3001
+```
+6. Verify the server is running
+- go to `http://localhost:3001/dishes`
+
+- change `<LocalForm>` to 
