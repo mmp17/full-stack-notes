@@ -289,3 +289,24 @@ export const fetchDishes = () => (dispatch) => {
 ```js
 <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
 ```
+6. Handling Errors
+```js
+return fetch(baseUrl + 'dishes')
+            .then(response => {
+              if (response.ok) {
+                return response
+              }
+              else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+              }
+            },
+            // if no respond from the server
+            error => {
+              var errmess = new Error(error.message);
+              throw errmess
+            })
+            .then(...)
+            .catch(error => dispatch(dishesFailed(error.message)));
+```
