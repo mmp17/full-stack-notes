@@ -170,6 +170,7 @@ _A style of software architecture for distributed hypermedia systems such as WWW
 
 #### REST Concepts
 <img src="https://image.slidesharecdn.com/asitrest-150317020843-conversion-gate01/95/learn-rest-api-at-asit-6-638.jpg?cb=1426576159" width="300px"> 
+
 - Nouns (Resources)
     - identified by URLs, e.g. `http://www.conFusion.food/dishes/`
     - can be document, image, a collection of resources, etc.
