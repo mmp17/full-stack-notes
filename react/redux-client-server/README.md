@@ -5,6 +5,8 @@
     - [Networking Alphabet Soup](#networking-alphabet-soup)
     - [Client-Server Communication](#client-server-communication)
     - [Hypertext Transfer Protocol (HTTP)](#hypertext-transfer-protocol-http)
+    - [Web Services](#web-services)
+    - [Representational State Transfer (REST)](#representational-state-transfer-rest)
 4. [Fetch](#fetch)
 5. [React Animations](#react-animations)
 6. [Code](https://github.com/vanessaaleung/full-stack-notes/blob/master/react/redux-client-server/redux-client-server-code.md)
@@ -143,7 +145,47 @@ _Encoding the messages exchanged between client and server side_
     - Lightweight data interchange format
     - Language independent
     - A collection of name/value pairs
+    
+### Web Services
+_A system designed to support interoperability among systems that are connected over a network_
+- Service oriented architecture (SOA)
+- Provide a standardized way for two machines that are connected to Internet to be able to communicate with each other at the application layer level using open stadards
 
+#### Two Common Approaches
+- SOAP (Simple Object Access Protocol) based
+    - Use WSDL (Web services Description Language) to specify how two endpoints communicate with each other
+    - XML format messages
+- REST (Representational State Transfer)
+    - Exchange of data using XML/ JSON
+    - Simpler than SOAP, WSDL
+
+### Representational State Transfer (REST)
+_A style of software architecture for distributed hypermedia systems such as WWW_
+
+#### Basic Design Principles
+- Use HTTP methods explicitly
+- Stateless: the server doesn't store any info about the state
+- Expose directory structure-like URLs to provide resources
+- Transfer using XML, JSON, or both
+
+#### REST Concepts
+<img src="https://image.slidesharecdn.com/asitrest-150317020843-conversion-gate01/95/learn-rest-api-at-asit-6-638.jpg?cb=1426576159" width="300px"> 
+- Nouns (Resources)
+    - identified by URLs, e.g. `http://www.conFusion.food/dishes/`
+    - can be document, image, a collection of resources, etc.
+- Verbs
+    - specify the action to be done on the resources
+    - e.g. GET: READ, POST: CREATE, PUT: UPDATE, DELETE:  DELETE
+- Representations
+    - how to encode the information
+    - JSON or XML
+    
+#### Stateless Server
+- Server side should not track the client state
+    - Every request is a new request from the client
+- Client side should track its own state
+    - e.g. using cookies, client side database
+    
 ## Fetch
 
 ## React Animations
