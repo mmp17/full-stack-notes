@@ -5,7 +5,8 @@
 4. [React Redux Form](#react-redux-form)
 5. [Setting up a Server](#setting-up-a-server)
 6. [Fetch from Server](#fetch-from-server)
-7. [React Animations](#react-animations)
+7. [Fetch Post Data](#fetch-post-data)
+8. [React Animations](#react-animations)
 
 ## Combining Reducers
 1. Create a reducer function for each model and delete the `reducer.js` file
@@ -309,4 +310,49 @@ return fetch(baseUrl + 'dishes')
             })
             .then(...)
             .catch(error => dispatch(dishesFailed(error.message)));
+```
+
+## Fetch Post Data
+1. Create a message
+```js
+export const postComment = (dishId, rating, author, comment) => (dispatch) => {
+  const newComment = {
+      dishId: dishId,
+      rating: rating,
+      author: author,
+      comment: comment
+    }
+  newComment.date = new Date().toISOString();
+  ...
+```
+2. Send to the server
+```js
+return fetch(baseUrl + 'comments', {
+          method: 'POST',
+          body: JSON.stringify(newComment),
+          headers: {
+            'ContentType': 'application/json'
+          },
+          credentials: 'same-origin'
+        })
+        .then(response => {
+          if (response.ok) {
+            return response
+          }
+          else {
+            var error = new Error('Error ' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+          }
+        },
+        error => {
+          var errmess = new Error(error.message);
+          throw errmess
+        })
+        .then(response => response.json())
+        .then(response => dispatch(addComment(response)))
+        .catch(error => { console.log('Post comments ', error.message);
+                          alert('Your comment could not be posted\nError: ' + error.message);
+                        })
+}
 ```
