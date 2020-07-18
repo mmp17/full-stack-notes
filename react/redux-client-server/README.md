@@ -260,3 +260,31 @@ fetch(baseUrl + 'dishes')
 - Superagent
 
 ## React Animations
+### React-transition-group
+#### Transition
+_Transition from one component state to another_
+- animate the mounting and unmounting of a component
+- `in` prop: toggle the transition
+    0 true: component begins the sequence of entering -> entered state
+    - Timeoutspecifies the durating spent
+
+#### CSSTransition
+```jsx
+<CSSTransition key={this.props.location.key} classNames={page} timeout={300}>
+```
+- should define `.page-enter`, `.page-enter-active`, `.page-exist`, `.page-exit-active` classes
+
+#### TransitionGroup
+_Manages a set of `<Transition>` that apply to a list_
+- automatically toggles the in prop for the components
+
+### React-animation-components
+_A set of React components implemented using react-transition-group_
+- Provides drop in GPU accelerated animations and wrappers for group effects
+
+#### Animation Components
+- Fade, Transform, FadeTransform
+
+#### Wrapper Components
+- Stagger, Random, Loop
+
