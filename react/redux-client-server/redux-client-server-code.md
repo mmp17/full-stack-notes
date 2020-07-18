@@ -356,3 +356,76 @@ return fetch(baseUrl + 'comments', {
                         })
 }
 ```
+
+## React Animations
+### React Animations
+1. Install package
+```shell
+npm install react-transition-group
+```
+2. Configure css
+```css
+.page-enter {
+  opacity: 0.01;
+  transform: translateX(-100%);
+}
+
+.page-enter-active  {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 300ms ease-in;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.page-exit-active {
+  opacity: 0.01;
+  transform: translateX(100%);
+  transition: all 300ms ease-out;
+}
+```
+3. Apply transition animation
+```js
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+```
+- surround by TransitionGroup before applying transition
+```js
+<TransitionGroup>
+  <Switch>
+    ...
+  </Switch>
+</TransitionGroup>
+```
+- apply `CSSTransition`
+```js
+<CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+  <Switch>
+  ...
+```
+### React Animation Components
+1. Install the package
+```shell
+npm install react-animation-components prop-types
+```
+2. Apply animation
+```js
+import { FadeTransform } from 'react-animation-components';
+```
+- Apply FadeTransform to the `<Card>`: fade and transform at the same time
+```js
+<FadeTransform in
+          transformProps={{
+            exitTransform: 'scale(0.5) translateY(-50%)'
+          }}>
+```
+3. Apply Fade to a list
+```js
+<Fade in>
+  <div>
+    <li key={comment.id}>{comment.comment}</li>
+  </div>
+</Fade>
+```
