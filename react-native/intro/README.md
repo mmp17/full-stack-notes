@@ -1,5 +1,6 @@
 # Introduction
 1. [Hybrid Mobile App Development](#hybrid-mobile-app-development)
+2. [React Native](#react-native)
 
 ## Hybrid Mobile App Development
 ### App Implementation Approaches
@@ -47,3 +48,23 @@
     - Enterprise
     - Media
   
+## React Native
+_Build native mobile app using JavaScript and React_
+- Cross-platform, native iOS and Android apps without  web views
+- Focus on front-end
+- Hot Reloading: reflect changes immediately
+- Backed by Facebook
+
+### Hybrid Mobile Development
+<img src="hybrid.png" width="600px">
+
+### App Development
+1. Installing React Native Development Tools
+```shell
+npm install create-react-native-app -g
+```
+2. Scaffolding an App
+```shell
+create-react-native-app <app name>
+```
+3. Gives access to Expo SDK
