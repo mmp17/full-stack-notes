@@ -2,6 +2,7 @@
 1. [Hybrid Mobile App Development](#hybrid-mobile-app-development)
 2. [React Native](#react-native)
 3. [React Native App](#react-native-app)
+4. [React Native Components](#react-native-components)
 
 ## Hybrid Mobile App Development
 ### App Implementation Approaches
@@ -74,3 +75,8 @@ create-react-native-app <app name>
 -  `<Text>`: display text
 - Inline JavaScript based styling
   -  `StyleSheet`: construct a stylesheet
+
+## React Native Components
+```shell
+yarn add react-native-elements
+```
