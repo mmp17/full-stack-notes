@@ -1,6 +1,7 @@
 # Introduction
 1. [Hybrid Mobile App Development](#hybrid-mobile-app-development)
 2. [React Native](#react-native)
+3. [React Native App](#react-native-app)
 
 ## Hybrid Mobile App Development
 ### App Implementation Approaches
@@ -68,3 +69,8 @@ npm install create-react-native-app -g
 create-react-native-app <app name>
 ```
 3. Gives access to Expo SDK
+
+## React Native App
+-  `<Text>`: display text
+- Inline JavaScript based styling
+  -  `StyleSheet`: construct a stylesheet
