@@ -14,19 +14,26 @@ create-react-native-app <app name>
 3. Gives access to Expo SDK
 
 ## React Navigation
-### Create navigation between components
+### Stack Navigation
 1. Create a stack navigator
+- returns `Screen` and `Navigator`
+  - `Navigator` should contain `Screen` as its children to define the configuration for routes
 ```js
 const MenuNavigator = createStackNavigator()
 ```
-2. specify screens
+2. Configure the navigator
+- `NavigationContainer`: wraps all navigators structure
+- `Stack.Screen name="Home"`: corresponds to the name of the route
+- `initialRouteName`: the screen shows first
 ```js
-{
-  Menu: { screen: Menu },
-  Dishdetail: { screen: Dishdetail }
-}
+<NavigationContainer>
+  <Stack.Navigator initialRouteName="Home">
+    <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Screen name="Details" component={DetailsScreen} />
+  </Stack.Navigator>
+</NavigationContainer>
 ```
-3. navigate options
+3. Specifying options
 ```js
 // common navigation options: applied to all the screens
 {
@@ -46,9 +53,21 @@ const MenuNavigator = createStackNavigator()
 ```js
 <MenuNavigator />
 ```
-5. specify navigation options for specific component
+### Safe Area
+1. Import the library
 ```js
-static navigationOptions = {
-  title: 'Menu'  // title of the status bar
-}
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+```
+2. Apply safe are insets
+```js
+<SafeAreaView>
+  <Text>This is top text.</Text>
+  <Text>This is bottom text.</Text>
+</SafeAreaView>
+```
+3. Wrap the app in `SafeAreaProvider`: detect if the app is running on a device with notches
+```js
+<SafeAreaProvider> 
+  <NavigationContainer>{/*(...) */}</NavigationContainer>
+</SafeAreaProvider>
 ```
