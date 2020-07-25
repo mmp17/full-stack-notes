@@ -1,7 +1,6 @@
 # Introduction
 1. [React Native](#react-native)
 2. [React Navigation](#react-navigation)
-3. [Icons and Buttons](#icons-and-buttons)
 
 ## React Native
 1. Installing React Native Development Tools
@@ -71,18 +70,4 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 <SafeAreaProvider> 
   <NavigationContainer>{/*(...) */}</NavigationContainer>
 </SafeAreaProvider>
-```
-## Icons and Buttons
-- `raised`: add box shadow to button
-- `reverse`: reverses color scheme
-```js
-<Icon raised
-  reverse
-  name={ props.favorite ? 'heart' : 'heart-o'}
-  type="font-awesome"
-  color='#fc9d9d'
-  size={20}
-  onPress={() => 
-    props.favorite ? console.log('Already favorite') : props.onPress()} 
-/>
 ```
