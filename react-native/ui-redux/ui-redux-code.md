@@ -17,6 +17,7 @@
 />
 ```
 ## Redux
+### Setting up Redux
 1. Install packages
 ```shell
 yarn add redux react-redux redux-thunk redux-logger
@@ -128,4 +129,38 @@ export const addDishes = (dishes) => ({
   type: ActionTypes.ADD_DISHES,
   payload: dishes
 });
+```
+### Using Redux in React Native
+1. Connect Redux to the app in `App.js`
+- get the store
+```js
+import { ConfigureStore } from './redux/configureStore';
+
+const store = ConfigureStore(); // will return store
+```
+- connect the app with store
+```js
+<Provider store={store}> 
+  <Main />
+</Provider>
+```
+2. Map state to props in components
+```js
+const mapStateToProps = state => {
+  return {
+    leaders: state.leaders
+  }
+}
+```
+3. connect components to redux store
+```js
+export default connect(mapStateToProps)(About);
+```
+4. connect dispatchers to props in `MainComponent.js`
+```js
+import { fetchDishes } from '../redux/ActionCreators';
+
+const mapDispatchToProps = dispatch => ({
+  fetchDishes: ()  => dispatch(fetchDishes())
+})
 ```
