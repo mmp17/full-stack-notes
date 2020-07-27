@@ -1,6 +1,7 @@
 # [Code]React Native UI Elements and Redux
 1. [Icons and Buttons](#icons-and-buttons)
 2. [Redux](#redux)
+3. [React Debugging](#react-debugging)
 
 ## Icons and Buttons
 - `raised`: add box shadow to button
@@ -163,4 +164,13 @@ import { fetchDishes } from '../redux/ActionCreators';
 const mapDispatchToProps = dispatch => ({
   fetchDishes: ()  => dispatch(fetchDishes())
 })
+```
+## React Debugging
+1. Install packages
+```shell
+yarn add react-devtools
+```
+2. Start React devtools
+```shell
+react-devtools
 ```
