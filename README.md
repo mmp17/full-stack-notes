@@ -12,3 +12,8 @@ This repo contains my notes for the Full-Stack Web Development with [React Speci
     - React Animation
 3. [Multiplatform Mobile App Development with React Native](https://github.com/vanessaaleung/full-stack-notes/tree/master/react-native)
 4. [Server-side Development with NodeJS, Express and MongoDB](https://github.com/vanessaaleung/full-stack-notes/tree/master/server-side-development)
+    - NodeJS
+    - Database
+    - User Authentication
+    - Backend as a Service
+    - Integrating the React Client and Server
