@@ -41,3 +41,23 @@ import * as Animatable from 'react-native-animatable';
 - Apply animation functions
 - Takes a duration argument
 - Returns a promise that is resolved when animation completes successfully or is cancelled
+
+## Gestures
+- Scrolling, sliding, tappingg
+
+### Best Practices
+- Feedback/highlighting: Touchable, TouchableHighlight
+- Cancel-ability
+
+## PanResponder
+- Can recognize simple multi-touch gestures
+- Reconciles several touches into a single gesture
+- Gesture state
+  - stateID: persisted as long as there at least one touch on screen
+  - moveX, moveY: screen coordinates of the recently-moved touch
+  - x0, y0: screen coordinates
+  - dx, dy: accumulated distance of the gesture since the touch started
+  - vx, vy: current velocity of the gesture
+- Handlers
+  
+  
